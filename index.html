@@ -1,1 +1,77 @@
-x
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pong-swf</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        padding-bottom: 40px;
+        position: relative;
+      }
+
+      h1 {
+        display: none;
+      }
+
+      #webpage-iframe {
+        max-width: 99%;
+        height: 92vh;
+      }
+
+      #fullscreen-button {
+        position: absolute;
+        bottom: 3px;
+        right: 10px;
+        z-index: 9999;
+        background-color: transparent;
+        border: none;
+        color: red;
+        font-size: 24px;
+        cursor: pointer;
+        margin-top: 24px; /* Agregar margen superior */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pong-swf</h1>
+    <iframe
+      id="webpage-iframe"
+      src="https://unlocked-swf.github.io/GAme-s-swf/lbannana-assets/flash/index.html?swf=pong.swf"
+      width="100%"
+    ></iframe>
+    <button id="fullscreen-button" onclick="toggleFullScreen()">⛶</button>
+
+    <script>
+      function toggleFullScreen() {
+        var iframe = document.getElementById("webpage-iframe");
+
+        if (iframe.requestFullscreen) {
+          if (document.fullscreenElement) {
+            document.exitFullscreen();
+          } else {
+            iframe.requestFullscreen();
+          }
+        } else if (iframe.mozRequestFullScreen) {
+          if (document.mozFullScreenElement) {
+            document.mozCancelFullScreen();
+          } else {
+            iframe.mozRequestFullScreen();
+          }
+        } else if (iframe.webkitRequestFullscreen) {
+          if (document.webkitFullscreenElement) {
+            document.webkitExitFullscreen();
+          } else {
+            iframe.webkitRequestFullscreen();
+          }
+        } else if (iframe.msRequestFullscreen) {
+          if (document.msFullscreenElement) {
+            document.msExitFullscreen();
+          } else {
+            iframe.msRequestFullscreen();
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
